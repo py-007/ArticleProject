@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% if submited %}
+    <p>Article is added successfulyy..</p>
+    {% else %}
+    <center><h1>Create Aticles..</h1>
+    <form action="" method="post">
+        {% csrf_token %}
+        <input type="text" name="title" placeholder="Title">
+        <br>
+        <textarea name="desc" id="" placeholder="Description"></textarea>
+        <br>
+        <input type="text" name="author" placeholder="Author">
+        <br>
+        <input type="date" name="date" placeholder="Date">
+        <br>
+        <button>Submit</button>
+    </form>
+    </center>
+    {% endif %}
+ <BUtton><a href="{% url 'home' %}">Home</a></Button>
+<BUtton><a href="{% url 'all_articles' %}">Show Articles</a></Button>
+
+</body>
+</html>

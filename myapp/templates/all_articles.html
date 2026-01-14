@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <center><h1>All articles</h1></center>
+    <hr>
+    {% if all_data %}
+    <ul>
+        {% for i in all_data %}
+        <h2><li>{{i.id}}.{{i.title}}</li></h2>
+        <h3><li>Published on : {{i.date}}</li></h3>
+        <h3><li>{{i.description}}</li></h3>
+        <h3><li>By--"{{i.author}}"</li></h3>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+    <button><a href="{% url 'home' %}">Home</a></button>
+    <button><a href="{% url 'form' %}">Add Articles</a></button>
+  </body>
+</html>
