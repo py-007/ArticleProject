@@ -1,1 +1,19 @@
-<h1>This is specific html</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>{{data.title}}</h1>
+    <h3>By : {{data.author}} on {{data.date}}</h3>
+    <hr>
+    <p>{{data.description}}</p>
+    <BUtton><a href="{% url 'all_articles' %}">All Articles</a></Button>
+    <BUtton><a href="#">Update</a></Button>
+    <BUtton><a href="#">Delete</a></Button>
+
+    
+</body>
+</html>

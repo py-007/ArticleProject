@@ -21,5 +21,6 @@ def all_articles(request):
     all_data = A.objects.all()
     return render(request,'all_articles.html',{"all_data":all_data})
 
-def specific_view(request):
-    return render(request,'specific.html')
+def specific_view(request,id):
+    data = A.objects.get(id = id)
+    return render(request,'specific.html',{'data':data})
