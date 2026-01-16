@@ -12,7 +12,7 @@
     <p>{{data.description}}</p>
     <BUtton><a href="{% url 'all_articles' %}">All Articles</a></Button>
     <BUtton><a href="#">Update</a></Button>
-    <BUtton><a href="#">Delete</a></Button>
+    <BUtton><a href="{% url 'delete' data.id %}">Delete</a></Button>
 
     
 </body>

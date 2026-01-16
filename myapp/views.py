@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from myapp.models import ArticleModel as A
 # Create your views here.
 
@@ -24,3 +24,12 @@ def all_articles(request):
 def specific_view(request,id):
     data = A.objects.get(id = id)
     return render(request,'specific.html',{'data':data})
+
+def delete_article(request,id):
+    article = A.objects.get(id = id)
+
+    if request.method == 'POST':
+        article.delete()
+        return redirect("all_articles")
+    return render(request,'delete_article.html')
+        
