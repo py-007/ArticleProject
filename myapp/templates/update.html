@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <center>
+        <h1>Update the Article</h1>
+        <form action="" method="post">
+        {% csrf_token %}
+        <input type="text" name="title" placeholder="Title" value="{{data.title}}"">
+        <br>
+        <textarea name="desc" id="" placeholder="Description">{{data.description}}</textarea>
+        <br>
+        <input type="text" name="author" placeholder="Author" value = "{{data.author}}">
+        <br>
+        <input type="date" name="date" placeholder="Date" value = {{data.date|date:'Y-m-d'}}>
+        <br>
+        <button>Update</button>
+    </form>
+    </center>
+    <BUtton><a href="{% url 'all_articles' %}">All Articles</a></Button>
+</body>
+</html>

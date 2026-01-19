@@ -33,3 +33,15 @@ def delete_article(request,id):
         return redirect("all_articles")
     return render(request,'delete_article.html')
         
+
+def update_view(request,id):
+    data = A.objects.get(id = id)
+    context = {'data':data}
+    if request.method == 'POST':
+        data.title = request.POST.get('title') 
+        data.author = request.POST.get('author') 
+        data.description = request.POST.get('desc') 
+        data.date = request.POST.get('date') 
+        data.save()
+        return redirect("specific",id = data.id)
+    return render(request,'update.html',context)
