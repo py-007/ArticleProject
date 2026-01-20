@@ -7,4 +7,5 @@ urlpatterns = [
     path('spec/<int:id>', views.specific_view,name='specific'),
     path('delete/<int:id>', views.delete_article,name='delete'),
     path('update/<int:id>', views.update_view,name='update'),
+    path('deleteall/', views.delete_all,name='delete_all'),
 ]

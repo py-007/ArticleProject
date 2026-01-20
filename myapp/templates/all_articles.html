@@ -9,6 +9,15 @@
     <center><h1>All articles</h1></center>
     <h4>Total no. of articles - {{all_data | length}}</h4>
     <hr>
+
+    <center>
+      <form action="" method="get">
+        <input type="text" placeholder="search anything" name="q">
+        <button>Search</button>
+      </form>
+    </center>
+
+
     {% if all_data %}
     <ul>
         {% for i in all_data %}
@@ -23,5 +32,6 @@
 
     <button><a href="{% url 'home' %}">Home</a></button>
     <button><a href="{% url 'form' %}">Add Articles</a></button>
+    <button><a href="{% url 'delete_all' %}">Delete All</a></button>
   </body>
 </html>

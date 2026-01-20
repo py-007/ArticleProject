@@ -17,9 +17,23 @@ def form_view(request):
 
     return render(request,'form.html',{'submited':submited})
 
+from django.db.models import Q
 def all_articles(request):
     all_data = A.objects.all()
+    query = request.GET.get('q')
+
+    if query:
+        all_data = all_data.filter(
+            Q(title__icontains = query) |
+            Q(description__icontains = query) |
+            Q(author__icontains = query) 
+        )
+
+    print(query)
     return render(request,'all_articles.html',{"all_data":all_data})
+
+
+
 
 def specific_view(request,id):
     data = A.objects.get(id = id)
@@ -45,3 +59,10 @@ def update_view(request,id):
         data.save()
         return redirect("specific",id = data.id)
     return render(request,'update.html',context)
+
+
+def delete_all(request):
+    if request.method == 'POST':
+        A.objects.all().delete()
+        return redirect("home")
+    return render(request,"delete_article.html")
